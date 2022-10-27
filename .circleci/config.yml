@@ -27,6 +27,4 @@ workflows:
 #       - say-hello
   build:
     jobs:
-      - cypress/run:
-          executor: with-chrome
-          browser: chrome
+      - cypress/run
