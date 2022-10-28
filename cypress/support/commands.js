@@ -40,6 +40,22 @@ Cypress.Commands.add('facets', (name = 'Sample', legend = 'Sample Category', ind
         cy.get('legend').eq(index).should('have.text', legend)
     }
 })
+
+Cypress.Commands.add('entityCreate', (entity = 'Source', index = 0) => {
+    cy.get('#basic-nav-dropdown').click()
+    cy.get('.dropdown .dropdown-menu a').eq(index).click()
+    cy.url().should('contain', `/edit/${entity.toLowerCase()}?uuid=create`)
+})
+
+Cypress.Commands.add('copyVal', (delimiter = 'SenNet ID:', key = 'cypress.sennet_id', sel = '.modal-body p') => {
+    cy.get(sel).should(($el) => {
+        const txt = $el.text()
+        //expect(text).to.match(/foo/)
+        const id = txt.split(delimiter)[1].trim()
+        localStorage.setItem(key, id)
+        return id
+    })
+})
 //
 //
 // -- This is a child command --
