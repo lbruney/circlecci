@@ -4,5 +4,8 @@
 `npm i .`
 
 ## Run (tests before pushing to repo for Circle CI)
-`npm run cypress`
+`npm run cypress` # runs tests in complete Cypress GUI
 
+OR 
+
+`cypress run` # runs tests in terminal

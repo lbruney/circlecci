@@ -3,4 +3,5 @@ node_modules
 .vscode
 .DS_Store
 cypress/config/local.js
+cypress/videos
 dump.js

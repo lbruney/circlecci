@@ -1,4 +1,4 @@
-import {MSGS, PATHS} from "../../../config/constants";
+import {MSGS, PATHS, DATA} from "../../../config/constants";
 
 describe(`${MSGS.name}.${MSGS.entity}.${MSGS.create}.Sample`, () => {
     beforeEach(() => {
@@ -6,7 +6,7 @@ describe(`${MSGS.name}.${MSGS.entity}.${MSGS.create}.Sample`, () => {
         cy.visit(PATHS.search)
     })
 
-    context("Ensure success of creating Source:", () => {
+    context("Ensure success of creating Sample:", () => {
         it('Displays Hipaa', () => {
             cy.entityCreateForm('Sample', 1)
             cy.checkHipaa()
@@ -14,7 +14,10 @@ describe(`${MSGS.name}.${MSGS.entity}.${MSGS.create}.Sample`, () => {
         it("Displays modal", () => {
             cy.entityCreateForm('Sample', 1)
             cy.get('#group_uuid').select('University of Pittsburgh TMC')
-            cy.enterToSample()
+            cy.get('#direct_ancestor_uuid .btn').click()
+            cy.get('.input-group #search').type(`${DATA.sample.sennetId}{enter}`)
+            cy.get('.table-responsive tr').eq(1).click()
+            //cy.enterToSample()
         })
     })
 
