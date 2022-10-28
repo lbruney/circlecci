@@ -17,7 +17,7 @@ const PATHS = {
 
 const DATA = {
     source: {
-        uuid: '',
+        uuid: 'b5874d153e668d110a562c933671fdac',
         sennetId: ''
     },
     sample: {
@@ -26,4 +26,4 @@ const DATA = {
     }
 }
 
-export { URLS, PATHS, MSGS }
+export { URLS, PATHS, MSGS, DATA }
