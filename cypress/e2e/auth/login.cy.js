@@ -1,10 +1,9 @@
-import {PATHS} from "../../config/constants";
+import {MSGS, PATHS} from "../../config/constants";
 import {AUTH} from "../../config/local.js"
 
-describe('portal ui login', () => {
+describe(`${MSGS.name}.Auth`, () => {
 
-  it('navigates', () => {
+  it('Can login', () => {
     cy.login()
-
   })
 })
