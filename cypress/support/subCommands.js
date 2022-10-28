@@ -39,3 +39,11 @@ Cypress.Commands.add('selectAncestorInDataset', (id) => {
     cy.get('.table-responsive tr').eq(1).click()
 })
 
+Cypress.Commands.add('inputValueExists', (selectors, prop = 'val', min = 2) => {
+    for (let i = 0; i < selectors.length; i++) {
+        cy.get(selectors[i]).invoke(prop).should((val) => {
+            expect(val.length).to.be.at.least(min)
+        })
+    }
+})
+

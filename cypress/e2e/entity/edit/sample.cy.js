@@ -11,6 +11,9 @@ describe(`${MSGS.name}.${MSGS.entity}.${MSGS.edit}.Sample`, () => {
         it('Displays Hipaa', () => {
           cy.checkHipaa()
         })
+        it("Values populated", () => {
+            cy.inputValueExists(['#sample_category', '#organ', '#protocol_url'])
+        })
         it("Displays modal", () => {
           cy.enterToSample('Updated')
         })

@@ -10,6 +10,10 @@ describe(`${MSGS.name}.${MSGS.entity}.${MSGS.edit}.Source`, () => {
         it('Displays Hipaa', () => {
             cy.checkHipaa()
         })
+        it("Values populated", () => {
+            cy.inputValueExists(['#lab_source_id', '#protocol_url', '#source_type'])
+            cy.inputValueExists(['#description'], 'val', 10)
+        })
         it("Displays modal", () => {
             cy.enterToSource('Updated')
         })
