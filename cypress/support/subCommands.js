@@ -18,3 +18,24 @@ Cypress.Commands.add('enterToSample', (action = 'Created') => {
     cy.get('.modal-title').contains(`Sample ${action}`)
     cy.copyVal()
 })
+
+Cypress.Commands.add('enterToDataset', (action = 'Created') => {
+    cy.get('#lab_dataset_id').clear().type(`${Math.floor(Math.random() * 1000)}-lab`)
+    cy.get('#description').clear().type('Cypress automated description dataset')
+    cy.get('#dataset_info').clear().type('Additional Cypress automated description dataset')
+    cy.get('#data_types').select('CODEX')
+    cy.get('#contains_human_genetic_sequences[value="false"]').check()
+    cy.get('button.btn').contains('Submit').click()
+    cy.get('.modal-title').contains(`Dataset ${action}`)
+    cy.copyVal()
+})
+
+Cypress.Commands.add('selectAncestorInDataset', (id) => {
+    // TODO: consolidate id name of this button in code
+    cy.get('#direct_ancestor_uuid_button button').click()
+    cy.wait(1000)
+    cy.get('.input-group #search').clear().type(`${id}{enter}`)
+    cy.wait(1000)
+    cy.get('.table-responsive tr').eq(1).click()
+})
+

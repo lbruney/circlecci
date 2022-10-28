@@ -18,11 +18,15 @@ const PATHS = {
 const DATA = {
     source: {
         uuid: 'b5874d153e668d110a562c933671fdac',
-        sennetId: ''
+        sennetId: 'SNT496.QLMR.225'
     },
     sample: {
         uuid: '75416aad581009b8f316a3d034a2bda0',
-        sennetId: 'SNT496.QLMR.225'
+        sennetId: 'SNT333.VBRT.956'
+    },
+    dataset: {
+        uuid: 'b7f283e49584f14a2b30abcedd712ef7',
+        sennetId: 'SNT685.CDGR.672'
     }
 }
 
