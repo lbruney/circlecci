@@ -1,6 +1,6 @@
 import {MSGS, PATHS} from "../../../config/constants";
 
-describe(`${MSGS.name}.${MSGS.entity}.${MSGS.create}.Source`, () => {
+describe(`${MSGS.name}.${MSGS.entity}.${MSGS.create}.Sample`, () => {
     beforeEach(() => {
         cy.login()
         cy.visit(PATHS.search)
@@ -8,13 +8,13 @@ describe(`${MSGS.name}.${MSGS.entity}.${MSGS.create}.Source`, () => {
 
     context("Ensure success of creating Source:", () => {
         it('Displays Hipaa', () => {
-            cy.entityCreateForm()
+            cy.entityCreateForm('Sample', 1)
             cy.checkHipaa()
         })
         it("Displays modal", () => {
-            cy.entityCreateForm()
+            cy.entityCreateForm('Sample', 1)
             cy.get('#group_uuid').select('University of Pittsburgh TMC')
-            cy.enterToSource()
+            cy.enterToSample()
         })
     })
 

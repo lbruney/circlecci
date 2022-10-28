@@ -41,7 +41,7 @@ Cypress.Commands.add('facets', (name = 'Sample', legend = 'Sample Category', ind
     }
 })
 
-Cypress.Commands.add('entityCreate', (entity = 'Source', index = 0) => {
+Cypress.Commands.add('entityCreateForm', (entity = 'Source', index = 0) => {
     cy.get('#basic-nav-dropdown').click()
     cy.get('.dropdown .dropdown-menu a').eq(index).click()
     cy.url().should('contain', `/edit/${entity.toLowerCase()}?uuid=create`)
@@ -56,6 +56,12 @@ Cypress.Commands.add('copyVal', (delimiter = 'SenNet ID:', key = 'cypress.sennet
         return id
     })
 })
+
+Cypress.Commands.add('checkHipaa', () => {
+    cy.get('.hipaa-alert').should('have.length', 1)
+})
+
+
 //
 //
 // -- This is a child command --

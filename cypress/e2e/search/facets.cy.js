@@ -15,7 +15,6 @@ describe(`${MSGS.name}.${MSGS.search}.Facets`, () => {
             }
         })
         cy.wrap(result).its('length').should('eq', facets.length)
-
     })
 
 })

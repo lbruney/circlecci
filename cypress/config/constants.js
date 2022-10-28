@@ -10,7 +10,8 @@ const URLS = {
 }
 
 const PATHS = {
-    search: `${URLS.domain}search`
+    search: `${URLS.domain}search`,
+    edit: `${URLS.domain}edit`
 }
 
 export { URLS, PATHS, MSGS }
