@@ -31,7 +31,7 @@ const DATA = {
 }
 
 const WAIT = {
-    time: Cypress.env('wait') || 1000
+    time: Cypress.env('wait_time') || 1000
 }
 
 export { URLS, PATHS, MSGS, DATA, WAIT }
