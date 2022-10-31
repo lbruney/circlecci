@@ -7,7 +7,7 @@ const MSGS = {
 }
 
 const URLS = {
-    domain: 'https://data.dev.sennetconsortium.org/'
+    domain: Cypress.env('domain') || 'https://data.dev.sennetconsortium.org/'
 }
 
 const PATHS = {

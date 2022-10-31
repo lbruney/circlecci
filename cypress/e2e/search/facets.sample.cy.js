@@ -30,7 +30,8 @@ describe(`${MSGS.name}.${MSGS.search}.Facets.Sample`, () => {
             cy.facets()
             cy.wait(1000)
             cy.get('.sui-facet-view-more').eq(1).click()
-            cy.get('[for="example_facet_undefinedLI"] .sui-multi-checkbox-facet__input-text').eq(0).should('have.text', 'Large Intestine')
+            //DATA: A data specific test, this will fail if no entries are available
+            cy.get('[for="example_facet_undefinedkidney"] .sui-multi-checkbox-facet__input-text').eq(0).should('have.text', 'Kidney')
         })
     })
 
