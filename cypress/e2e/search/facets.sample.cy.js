@@ -1,4 +1,4 @@
-import {MSGS, PATHS} from "../../config/constants";
+import {MSGS, PATHS, WAIT} from "../../config/constants";
 
 describe(`${MSGS.name}.${MSGS.search}.Facets.Sample`, () => {
     beforeEach(() => {
@@ -21,14 +21,14 @@ describe(`${MSGS.name}.${MSGS.search}.Facets.Sample`, () => {
 
         it('Displays Organ facet', () => {
             cy.facets()
-            cy.wait(1000)
+            cy.wait(WAIT.time)
             //TODO: use className sui-facet__title--Organ
             cy.get('legend').eq(4).should('have.text', 'Organ')
         })
 
         it('Displays Large Intestine on click of + More under Organ (#136)', () => {
             cy.facets()
-            cy.wait(1000)
+            cy.wait(WAIT.time)
             cy.get('.sui-facet-view-more').eq(1).click()
             //DATA: A data specific test, this will fail if no entries are available
             cy.get('[for="example_facet_undefinedkidney"] .sui-multi-checkbox-facet__input-text').eq(0).should('have.text', 'Kidney')

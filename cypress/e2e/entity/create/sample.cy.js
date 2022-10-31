@@ -1,4 +1,4 @@
-import {MSGS, PATHS, DATA} from "../../../config/constants";
+import {MSGS, PATHS, DATA, WAIT} from "../../../config/constants";
 
 describe(`${MSGS.name}.${MSGS.entity}.${MSGS.create}.Sample`, () => {
     beforeEach(() => {
@@ -16,7 +16,7 @@ describe(`${MSGS.name}.${MSGS.entity}.${MSGS.create}.Sample`, () => {
             cy.get('#group_uuid').select('University of Pittsburgh TMC')
             cy.get('#direct_ancestor_uuid .btn').click()
             cy.get('.input-group #search').type(`${DATA.sample.sennetId}{enter}`)
-            cy.wait(1000)
+            cy.wait(WAIT.time)
             cy.get('.table-responsive tr').eq(1).click()
             cy.enterToSample()
         })

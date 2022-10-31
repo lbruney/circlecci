@@ -30,4 +30,8 @@ const DATA = {
     }
 }
 
-export { URLS, PATHS, MSGS, DATA }
+const WAIT = {
+    time: Cypress.env('wait') || 1000
+}
+
+export { URLS, PATHS, MSGS, DATA, WAIT }

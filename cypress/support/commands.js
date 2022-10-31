@@ -10,7 +10,7 @@
 //
 //
 // -- This is a parent command --
-import {PATHS} from "../config/constants";
+import {PATHS, WAIT} from "../config/constants";
 import {AUTH} from "../config/auth";
 
 Cypress.Commands.add('login', (name = 'pitt', options = { }) => {
@@ -34,7 +34,7 @@ Cypress.Commands.add('login', (name = 'pitt', options = { }) => {
 })
 
 Cypress.Commands.add('facets', (name = 'Sample', legend = 'Sample Category', index = 2) => {
-    cy.wait(1000)
+    cy.wait(WAIT.time)
     cy.get(`#example_facet_undefined${name}`).parent().click()
     if (legend && legend.length) {
         cy.get('legend').eq(index).should('have.text', legend)
