@@ -15,4 +15,3 @@ workflows:
           store_artifacts: true
           executor: with-chrome
           browser: chrome
-          headed: true
