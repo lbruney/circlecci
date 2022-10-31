@@ -4,4 +4,6 @@ node_modules
 .DS_Store
 cypress/config/local.js
 cypress/videos
+cypress/screenshots/
 dump.js
+cypress.env.json

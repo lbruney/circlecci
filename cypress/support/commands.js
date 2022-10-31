@@ -11,7 +11,7 @@
 //
 // -- This is a parent command --
 import {PATHS} from "../config/constants";
-import {AUTH} from "../config/local";
+import {AUTH} from "../config/auth";
 
 Cypress.Commands.add('login', (name = 'pitt', options = { }) => {
     cy.session(name, () => {

@@ -1,5 +1,4 @@
 import {MSGS, PATHS} from "../../config/constants";
-import {AUTH} from "../../config/local.js"
 
 describe(`${MSGS.name}.Auth`, () => {
     beforeEach(() => {
