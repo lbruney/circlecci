@@ -7,11 +7,12 @@ orbs:
 executors:
   with-chrome:
     docker:
-      - image: 'cypress/browsers:node16.17.1-chrome105-ff104-edge'
+      - image: 'cypress/browsers:node16.17.1-chrome106-ff105-edge'
 workflows:
   build:
     jobs:
       - cypress/run:
           store_artifacts: true
           executor: with-chrome
-          browser: firefox
+          browser: chrome
+          headed: true
