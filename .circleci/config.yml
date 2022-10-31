@@ -3,7 +3,7 @@
 
 version: 2.1
 orbs:
-  cypress: cypress-io/cypress@1
+  cypress: cypress-io/cypress@2
 executors:
   with-chrome:
     docker:
