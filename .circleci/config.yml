@@ -14,4 +14,4 @@ workflows:
       - cypress/run:
           store_artifacts: true
           executor: with-chrome
-          browser: chrome
+          browser: firefox
