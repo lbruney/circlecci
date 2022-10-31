@@ -12,5 +12,6 @@ workflows:
   build:
     jobs:
       - cypress/run:
+          store_artifacts: true
           executor: with-chrome
           browser: chrome
