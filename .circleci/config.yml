@@ -4,15 +4,21 @@
 version: 2.1
 orbs:
   cypress: cypress-io/cypress@2.1.0
-executors:
-  with-chrome:
+
+
+jobs:
+  sennet:
+    circleci_ip_ranges: true # opts the job into the IP ranges feature
     docker:
       - image: 'cypress/browsers:node16.17.1-chrome106-ff105-edge'
+    steps:
+      - run: echo "Using custom ip address"
 workflows:
   build:
-    circleci_ip_ranges: true # opts the job into the IP ranges feature
     jobs:
       - cypress/run:
           store_artifacts: true
-          executor: with-chrome
           browser: chrome
+      - sennet:
+          requires:
+            - cypress/run
