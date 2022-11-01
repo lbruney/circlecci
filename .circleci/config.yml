@@ -6,6 +6,7 @@ orbs:
   cypress: cypress-io/cypress@2.1.0
 executors:
   with-chrome:
+    circleci_ip_ranges: true # opts the job into the IP ranges feature
     docker:
       - image: 'cypress/browsers:node16.17.1-chrome106-ff105-edge'
 workflows:
