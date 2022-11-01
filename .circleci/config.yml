@@ -1,24 +1,52 @@
 # Use the latest 2.1 version of CircleCI pipeline process engine.
 # See: https://circleci.com/docs/2.0/configuration-reference
 
-version: 2.1
-orbs:
-  cypress: cypress-io/cypress@2.1.0
+#version: 2.1
+#orbs:
+#  cypress: cypress-io/cypress@2.1.0
+#executors:
+#  with-chrome:
+#    circleci_ip_ranges: true # opts the job into the IP ranges feature
+#    docker:
+#      - image: 'cypress/browsers:node16.17.1-chrome106-ff105-edge'
+#workflows:
+#  build:
+#    jobs:
+#      - cypress/run:
+#          store_artifacts: true
+#          executor: with-chrome
+#          browser: chrome
 
+
+version: 2.1
+
+orbs:
+  cypress: cypress-io/cypress@1.29.0
+  node: circleci/node@5.0.3
 
 jobs:
-  sennet:
-    circleci_ip_ranges: true # opts the job into the IP ranges feature
-    docker:
-      - image: 'cypress/browsers:node16.17.1-chrome106-ff105-edge'
+
+  install_cypress:
+    executor: cypress/browsers-chrome77
     steps:
-      - run: echo "Using custom ip address"
+      - checkout
+      - cypress/install
+
+  cypress_with_ip_ranges:
+    executor: cypress/browsers-chrome77
+    circleci_ip_ranges: true
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run:
+          name: Show IP address
+          command: curl -s https://checkip.amazonaws.com/
+      - run: npm run cypress
+
 workflows:
-  build:
+  cypress:
     jobs:
-      - cypress/run:
-          store_artifacts: true
-          browser: chrome
-      - sennet:
+      - install_cypress
+      - cypress_with_ip_ranges:
           requires:
-            - cypress/run
+            - install_cypress
