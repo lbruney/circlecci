@@ -33,22 +33,23 @@ jobs:
       - cypress/install
 
   show_ip:
+    executor: cypress/browsers-chrome77
     steps:
       - attach_workspace:
-        at: ~/
+          at: ~/
       - run:
-        name: Show IP address Pre-cypress
-        command: curl -s https://checkip.amazonaws.com/
+          name: Show IP address Pre cypress
+          command: curl -s https://checkip.amazonaws.com/
 
   cypress_with_ip_ranges:
     executor: cypress/browsers-chrome77
     circleci_ip_ranges: true
     steps:
       - attach_workspace:
-        at: ~/
+          at: ~/
       - run:
-        name: Show IP address Cypress
-        command: curl -s https://checkip.amazonaws.com/
+          name: Show IP address
+          command: curl -s https://checkip.amazonaws.com/
       - run: npm run cypress
 
 workflows:
