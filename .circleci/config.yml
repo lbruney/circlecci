@@ -55,6 +55,7 @@ workflows:
   cypress:
     jobs:
       - install_cypress
+      - show_ip
       - cypress_with_ip_ranges:
           requires:
             - install_cypress
