@@ -3,10 +3,13 @@ on: [push]
 jobs:
   cypress-run:
     runs-on: ubuntu-20.04
-    container: cypress/browsers:node12.18.3-chrome87-ff82
+    container: cypress/browsers:node16.17.1-chrome106-ff105-edge
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
+      - name: Show IP
+          curl -s https://checkip.amazonaws.com/
         
       - name: Write the cypress.env.json file 📝
         # use quotes around the secret, as its value
@@ -23,10 +26,6 @@ jobs:
           # Recommended: pass the GitHub token lets this action correctly
           # determine the unique run id necessary to re-run the checks
           GITHUB_TOKEN: ${{ secrets.CITOKEN }}
-          CYPRESS_DOMAIN: ${{ secrets.CYPRESS_DOMAIN }}
-          CYPRESS_PASSWORD: ${{ secrets.CYPRESS_PASSWORD }}
-          CYPRESS_USERNAME: ${{ secrets.CYPRESS_USERNAME }}
-          CYPRESS_WAIT_TIME: ${{ secrets.CYPRESS_WAIT_TIME }}
        # you can use Cypress Dashboard to store the screenshots
        # or store them on GitHub and download the zip file
        # https://github.com/actions/upload-artifact
