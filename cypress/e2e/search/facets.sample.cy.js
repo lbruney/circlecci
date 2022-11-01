@@ -3,7 +3,7 @@ import {MSGS, PATHS, WAIT} from "../../config/constants";
 describe(`${MSGS.name}.${MSGS.search}.Facets.Sample`, () => {
     beforeEach(() => {
         cy.login()
-        //cy.visit(PATHS.search)
+        cy.visit(PATHS.search)
     })
 
     context('When selecting “Sample”', () => {
