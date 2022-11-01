@@ -14,7 +14,7 @@ jobs:
           # Recommended: pass the GitHub token lets this action correctly
           # determine the unique run id necessary to re-run the checks
           GITHUB_TOKEN: ${{ secrets.CITOKEN }}
-          CYPRESS_DOMAIN: ${{ secrets.test.CYPRESS_DOMAIN }}
-          CYPRESS_PASSWORD: ${{ secrets.test.CYPRESS_PASSWORD }}
-          CYPRESS_USERNAME: ${{ secrets.test.CYPRESS_USERNAME }}
-          CYPRESS_WAIT_TIME: ${{ secrets.test.CYPRESS_WAIT_TIME }}
+          CYPRESS_DOMAIN: ${{ secrets.CYPRESS_DOMAIN }}
+          CYPRESS_PASSWORD: ${{ secrets.CYPRESS_PASSWORD }}
+          CYPRESS_USERNAME: ${{ secrets.CYPRESS_USERNAME }}
+          CYPRESS_WAIT_TIME: ${{ secrets.CYPRESS_WAIT_TIME }}
