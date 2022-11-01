@@ -9,6 +9,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Show IP
+        run: |
           curl -s https://checkip.amazonaws.com/
         
       - name: Write the cypress.env.json file 📝
